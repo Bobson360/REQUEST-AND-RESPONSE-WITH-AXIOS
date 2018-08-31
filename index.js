@@ -1,16 +1,16 @@
-var axios = require("axios")
+var axios = require("axios") //faz a chamada ao axios
 
-const url = "http://fakerestapi.azurewebsites.net/api/Users"
+const url = "http://fakerestapi.azurewebsites.net/api/Users" // armazena a url
 
-const data = {
+const data = {  // armazena o documento que será passado pela requisição
     UserName: "bobson",
     Password: "123456"
 }
 
-axios.post( url, data)
-.then(function(res){
+axios.post( url, data) // faz uma requisição POST na url e passa os dados da variavel data
+.then((res) => {    // então trata o response 
 
-    switch (res.status){
+    switch (res.status){// atribui um texto de acordo com o status code
         
         case 200:
         var status = 'SUCCESS'
@@ -29,7 +29,7 @@ axios.post( url, data)
         break
     }
 
-    console.log(`HTTP STATUS CODE ${res.status}: ${status}`)
-    console.log(res.data)
+    console.log(`HTTP STATUS CODE ${res.status}: ${status}`) // imprime status code e um texto correspondente
+    console.log(res.data) // imprime o response
 })
 
